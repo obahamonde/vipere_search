@@ -41,14 +41,14 @@
   
   function searchQueryspeech() {
   
-    const { data } = useFetch(`/api/${unref(lang)}/${unref(query)}/${unref(page)}`).json()
+    const { data } = useFetch(`https://dstzf5kmgfl76io5ynsn3yn7hm0gbeur.lambda-url.us-east-1.on.aws/${unref(lang)}/${unref(query)}/${unref(page)}`).json()
     results.value = data
     stop()
   }
   
   function searchQuery() {
   
-    const { data } = useFetch(`/api/${unref(lang)}/${unref(query)}/${unref(page)}`).json()
+    const { data } = useFetch(`https://dstzf5kmgfl76io5ynsn3yn7hm0gbeur.lambda-url.us-east-1.on.aws/${unref(lang)}/${unref(query)}/${unref(page)}`).json()
     results.value = data
   
   }
