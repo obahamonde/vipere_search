@@ -7,17 +7,11 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    Alien: typeof import('./src/components/Alien.vue')['default']
-    Auth: typeof import('./src/components/Auth.vue')['default']
-    Button: typeof import('./src/components/Button.vue')['default']
-    Counter: typeof import('./src/components/Counter.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     Ico: typeof import('./src/components/Ico.vue')['default']
     Loading: typeof import('./src/components/Loading.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Search: typeof import('./src/components/Search.vue')['default']
-    Toast: typeof import('./src/components/Toast.vue')['default']
-    Upload: typeof import('./src/components/Upload.vue')['default']
   }
 }
