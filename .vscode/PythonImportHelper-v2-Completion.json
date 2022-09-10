@@ -1,0 +1,103 @@
+[
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "ClientSession",
+        "importPath": "aiohttp",
+        "description": "aiohttp",
+        "isExtraImport": true,
+        "detail": "aiohttp",
+        "documentation": {}
+    },
+    {
+        "label": "Mangum",
+        "importPath": "mangum",
+        "description": "mangum",
+        "isExtraImport": true,
+        "detail": "mangum",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "SearchMicroservice",
+        "kind": 6,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "class SearchMicroservice(FastAPI):\n    def __init__(self, *args, **kwargs):\n        super().__init__(*args, **kwargs)\n    async def fetch(self, url: Union[str, HttpUrl]) -> Union[Dict[str, Any], str, bytes]:\n        try:\n            async with ClientSession() as session:\n                async with session.get(url=url,headers={\"user-agent\": AGENT}) as response:\n                        return await response.json()\n        except Exception as execption:\n            raise HTTPException(status_code=500, detail=str(execption))",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "AGENT",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "AGENT = \"\"\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5)AppleWebKit/605.1.15 (KHTML, like Gecko)Version/12.1.1 Safari/605.1.15\"\"\"\ndefault_headers = {\n    \"User-Agent\": AGENT\n}\nclass SearchMicroservice(FastAPI):\n    def __init__(self, *args, **kwargs):\n        super().__init__(*args, **kwargs)\n    async def fetch(self, url: Union[str, HttpUrl]) -> Union[Dict[str, Any], str, bytes]:\n        try:\n            async with ClientSession() as session:",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "default_headers",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "default_headers = {\n    \"User-Agent\": AGENT\n}\nclass SearchMicroservice(FastAPI):\n    def __init__(self, *args, **kwargs):\n        super().__init__(*args, **kwargs)\n    async def fetch(self, url: Union[str, HttpUrl]) -> Union[Dict[str, Any], str, bytes]:\n        try:\n            async with ClientSession() as session:\n                async with session.get(url=url,headers={\"user-agent\": AGENT}) as response:",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = SearchMicroservice()\n@app.get(\"/api/{lang}/{query}/{page}\")\nasync def main(lang:str, query:str, page:int):\n    return await app.search(lang, query, page)\n@app.get(\"/\")\nasync def root():\n    return {\n        \"service\": \"Search Microservice\",\n        \"version\": \"1.0.0\",\n        \"methods\": [\"GET\"],",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "handler",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "handler = Mangum(app)",
+        "detail": "app",
+        "documentation": {}
+    }
+]
