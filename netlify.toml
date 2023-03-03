@@ -6,7 +6,7 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "https://dstzf5kmgfl76io5ynsn3yn7hm0gbeur.lambda-url.us-east-1.on.aws/:splat"
+  to = "https://nwjuct77lwx2v7zklxwsknijfu0gpdxb.lambda-url.us-east-1.on.aws/:splat"
   status = 200
   force = true
 

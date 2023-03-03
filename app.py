@@ -2,8 +2,9 @@ from fastapi import FastAPI, HTTPException
 from bs4 import BeautifulSoup
 from aiohttp import ClientSession
 from mangum import Mangum
-from pydantic import *
-from typing import *
+from pydantic import HttpUrl
+from typing import List, Dict, Any, Union
+from fastapi.middleware.cors import CORSMiddleware
 
 AGENT = """Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5)AppleWebKit/605.1.15 (KHTML, like Gecko)Version/12.1.1 Safari/605.1.15"""
 
@@ -14,6 +15,13 @@ default_headers = {
 class SearchMicroservice(FastAPI):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.add_middleware(
+            CORSMiddleware,
+            allow_origins=["*"],
+            allow_credentials=True,
+            allow_methods=["*"],
+            allow_headers=["*"],
+        )
     
     async def fetch(self, url: Union[str, HttpUrl]) -> Union[Dict[str, Any], str, bytes]:
         try:
